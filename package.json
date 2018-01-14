@@ -8,6 +8,7 @@
     "prepublish": "npm run build",
     "build": "tsc"
   },
+  "typings": "dist/index.d.ts",
   "os": ["darwin"],
   "engines": {
     "node": ">= 7.6.0"
