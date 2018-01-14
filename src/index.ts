@@ -3,18 +3,37 @@ import * as path from "path"
 
 export async function getRawData() {
     const raw_res = await new Promise<string>((resolve, reject) => {
-        child_process.spawn("osascript", [path.join(__dirname, "itunes.js")]).stdout.on("data", (data) => {
+        var stdout = ""
+        var stderr = ""
+        var process = child_process.spawn("osascript", [path.join(__dirname, "itunes.js")])
+        process.stdout.on("data", (data) => {
             if (data instanceof Buffer) {
                 data = data.toString("utf-8")
             }
-            resolve(data)
+            stdout += data
+        })
+        process.stderr.on("data", (data) => {
+            if (data instanceof Buffer) {
+                data = data.toString("utf-8")
+            }
+            stderr += data
+        })
+        process.on("close", (code) => {
+            if (code != 0) {
+                reject(stderr)
+            } else {
+                resolve(stdout)
+            }
         })
     })
     const res = JSON.parse(raw_res)
-    return res
+    return res as {[key: string]: any} | null;
 }
 async function getData() {
     const res = await getRawData()
+    if (res == null) {
+        return null
+    }
     return {
         name: res.name as string,
         duration: res.duration as number,
