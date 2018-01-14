@@ -8,6 +8,10 @@
     "prepublish": "npm run build",
     "build": "tsc"
   },
+  "os": ["darwin"],
+  "engines": {
+    "node": ">= 7.6.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rinsuki/itunes-nowplaying-mac.git"
