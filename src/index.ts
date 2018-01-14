@@ -58,6 +58,7 @@ async function getData() {
         comment: res.comment as string,
         loved: res.loved as boolean,
         disliked: res.disliked as boolean,
+        state: res.state as "playing" | "paused",
     }
 }
 

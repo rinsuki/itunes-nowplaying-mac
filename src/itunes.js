@@ -11,5 +11,6 @@ function run(argv) {
             track[name] = undefined
         }
     })
+    track.state = state
     return JSON.stringify(track, null, 4)
 }
