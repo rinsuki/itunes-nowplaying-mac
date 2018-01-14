@@ -53,6 +53,7 @@ example return data:
     "sampleRate": 44100,
     "comment": "",
     "loved": true,
-    "disliked": false
+    "disliked": false,
+    "state": "playing"
 }
 ```
