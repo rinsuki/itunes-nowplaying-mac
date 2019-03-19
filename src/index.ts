@@ -59,6 +59,7 @@ async function getData() {
         loved: res.loved as boolean,
         disliked: res.disliked as boolean,
         state: res.state as "playing" | "paused",
+        artwork: res.artworks[0] as {[key: string]: any} | null,
     }
 }
 
