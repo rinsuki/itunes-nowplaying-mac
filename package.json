@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "npm run build",
-    "build": "npm run ts-build && npm run as-build",
-    "ts-build": "tsc",
-    "as-build": "osacompile -o dist/itunes.scpt src/itunes.applescript"
+    "build": "npm run build:ts && npm run build:as",
+    "build:ts": "tsc",
+    "build:as": "osacompile -o dist/itunes.scpt src/itunes.applescript"
   },
   "typings": "dist/index.d.ts",
   "os": ["darwin"],
