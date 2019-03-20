@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "npm run build",
-    "build": "tsc"
+    "build": "tsc && cp src/itunes.js dist/itunes.js"
   },
   "typings": "dist/index.d.ts",
   "os": ["darwin"],
