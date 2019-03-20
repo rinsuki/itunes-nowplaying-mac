@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "build": "npm run ts-build && npm run as-build",
     "ts-build": "tsc",
     "as-build": "osacompile -o dist/itunes.scpt src/itunes.applescript"
