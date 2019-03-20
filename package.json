@@ -8,7 +8,7 @@
     "prepare": "npm run build",
     "build": "npm run build:ts && npm run build:as",
     "build:ts": "tsc",
-    "build:as": "osacompile -o dist/itunes.scpt src/itunes.applescript"
+    "build:as": "osacompile -o dist/itunes.scpt src/itunes.applescript && cp src/itunes.js dist/itunes.js"
   },
   "typings": "dist/index.d.ts",
   "os": ["darwin"],
