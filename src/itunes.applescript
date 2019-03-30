@@ -9,7 +9,7 @@ on run
         end try
         set trackArtworks to []
         repeat with trackArtwork in currentTrack's artworks
-            set imageData to trackArtwork's data
+            set imageData to trackArtwork's raw data
             set imageFormat to trackArtwork's format
             set imagePath to my tempFilePath(currentTrack's album, imageData, trackArtwork's format)
             if imageFormat = JPEG picture then
