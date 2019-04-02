@@ -1,3 +1,6 @@
+var app = Application.currentApplication()
+app.includeStandardAdditions = true
+var containerPath = Application('System Events').files[app.pathTo(this).toString()].container().posixPath()
 var itunes = Application("iTunes")
 var track = itunes.currentTrack
 function run(argv) {
@@ -5,6 +8,7 @@ function run(argv) {
     if (state != "playing" && state != "paused") {
         return "null"
     }
+    var existsArtwork = track.artworks.length > 0
     track = track.properties()
     Object.keys(track).filter(function (name) {
         if (name.startsWith("purchase") || name.endsWith("ID")) {
@@ -12,5 +16,10 @@ function run(argv) {
         }
     })
     track.state = state
+    if (existsArtwork) {
+        track.artworks = app.runScript(Path(containerPath +"/itunes.scpt"))
+    } else {
+        track.artworks = []
+    }
     return JSON.stringify(track, null, 4)
 }
