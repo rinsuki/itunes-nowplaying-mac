@@ -18,7 +18,7 @@ function run(argv) {
     })
     track.state = state
     track.artworks = []
-    if (currentTrack.existArtworks) {
+    if (currentTrack.artworks.length > 0) {
         track.artworks = app.runScript(Path(containerPath +"/itunes.scpt"))
     }
     return JSON.stringify(track, null, 4)
