@@ -37,7 +37,7 @@ export async function getRawData(opts: JXAOpts = {}) {
     return res as {[key: string]: any} | null;
 }
 async function getData() {
-    const res = await getRawData()
+    const res = await getRawData({withoutArtworks:true})
     if (res == null) {
         return null
     }
@@ -66,6 +66,7 @@ async function getData() {
         loved: res.loved as boolean,
         disliked: res.disliked as boolean,
         state: res.state as "playing" | "paused",
+        existsArtwork: res.existsArtwork as boolean,
     }
 }
 
