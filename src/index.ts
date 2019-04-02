@@ -1,11 +1,18 @@
 import * as child_process from "child_process"
 import * as path from "path"
 
-export async function getRawData() {
+interface JXAOpts {
+    withoutArtworks?: boolean;
+}
+export async function getRawData(opts: JXAOpts = {}) {
     const raw_res = await new Promise<string>((resolve, reject) => {
         var stdout = ""
         var stderr = ""
-        var process = child_process.spawn("osascript", [path.join(__dirname, "itunes.js")])
+        var cmdParams = [path.join(__dirname, "itunes.js")]
+        if (opts.withoutArtworks) {
+            cmdParams.push("-without-artworks")
+        }
+        var process = child_process.spawn("osascript", cmdParams)
         process.stdout.on("data", (data) => {
             if (data instanceof Buffer) {
                 data = data.toString("utf-8")

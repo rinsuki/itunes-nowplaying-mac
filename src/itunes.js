@@ -16,6 +16,11 @@ function run(argv) {
         }
     })
     track.state = state
+    track.existsArtwork = existsArtwork
+    if (argv.includes("-without-artworks")) {
+        return JSON.stringify(track, null, 4)
+    }
+
     if (existsArtwork) {
         track.artworks = app.runScript(Path(containerPath +"/itunes.scpt"))
     } else {
