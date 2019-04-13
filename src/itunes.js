@@ -1,3 +1,4 @@
+#!/usr/bin/osascript -l JavaScript
 var app = Application.currentApplication()
 app.includeStandardAdditions = true
 var containerPath = Application('System Events').files[app.pathTo(this).toString()].container().posixPath()
