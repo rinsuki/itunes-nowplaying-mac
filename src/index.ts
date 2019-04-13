@@ -11,7 +11,7 @@ export async function getRawData(opts: JXAOpts = {}) {
         "-without-artworks"
     ] : []
     try {
-        const { stdout } = await promisifyExecFile(join(__dirname, "itunes.js"), cmdArgs);
+        const { stdout } = await promisifyExecFile(join(__dirname, "itunes.js"), cmdArgs, {maxBuffer:10*1024*1024});
         let res = JSON.parse(stdout.toString())
         return res as {[key: string]: any} | null;
     } catch (e) {
