@@ -3,7 +3,7 @@ import { execFile } from "child_process"
 import { join } from "path"
 const promisifyExecFile = promisify(execFile)
 
-interface JXAOpts {
+export interface JXAOpts {
     withoutArtworks?: boolean;
 }
 export async function getRawData(opts: JXAOpts = {}) {
