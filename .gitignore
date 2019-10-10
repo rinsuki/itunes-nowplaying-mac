@@ -1,2 +1,5 @@
 node_modules
 dist
+src/Music.h
+jxa/
+!jxa/*.js

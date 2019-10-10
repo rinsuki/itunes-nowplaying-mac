@@ -9,7 +9,7 @@ function run(argv) {
     }
     track = track.properties()
     Object.keys(track).filter(function (name) {
-        if (name.startsWith("purchase") || name.endsWith("ID")) {
+        if (name.startsWith("purchase") || (name.endsWith("ID") && name != "databaseID")) {
             track[name] = undefined
         }
     })

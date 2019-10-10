@@ -13,13 +13,21 @@ export async function getRawData() {
     }
 }
 
+export async function getThumbnailBuffer(databaseID: number) {
+    const { stdout } = await promisifyExecFile(join(__dirname, "..", "jxa", "get-thumbnail"), [databaseID.toString()], {
+        maxBuffer: 64 * 1024 * 1024,
+        encoding: "buffer"
+    })
+    return stdout as Buffer
+}
+
 async function getData() {
     const res = await getRawData()
     if (res == null) {
         return null
     }
     return {
-        id: res.id as number,
+        databaseID: res.databaseID as number,
         name: res.name as string,
         duration: res.duration as number,
         artist: res.artist as string,
@@ -50,5 +58,6 @@ async function getData() {
 Object.defineProperty(getData, "default", {value: getData})
 module.exports = getData
 module.exports.getRawData = getRawData
+module.exports.getThumbnailBuffer = getThumbnailBuffer
 
 export default getData
