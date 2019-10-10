@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "electron": "^6.0.12",
-    "itunes-nowplaying-mac": "../.."
+    "itunes-nowplaying-mac": "^0.3.0"
   }
 }
