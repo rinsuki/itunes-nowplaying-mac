@@ -1,33 +1,16 @@
-import * as child_process from "child_process"
-import * as path from "path"
+import { promisify } from "util"
+import { execFile } from "child_process"
+import { join } from "path"
+const promisifyExecFile = promisify(execFile)
 
 export async function getRawData() {
-    const raw_res = await new Promise<string>((resolve, reject) => {
-        var stdout = ""
-        var stderr = ""
-        var process = child_process.spawn("osascript", [path.join(__dirname, "itunes.js")])
-        process.stdout.on("data", (data) => {
-            if (data instanceof Buffer) {
-                data = data.toString("utf-8")
-            }
-            stdout += data
-        })
-        process.stderr.on("data", (data) => {
-            if (data instanceof Buffer) {
-                data = data.toString("utf-8")
-            }
-            stderr += data
-        })
-        process.on("close", (code) => {
-            if (code != 0) {
-                reject(stderr)
-            } else {
-                resolve(stdout)
-            }
-        })
-    })
-    const res = JSON.parse(raw_res)
-    return res as {[key: string]: any} | null;
+    try {
+        const { stdout } = await promisifyExecFile(join(__dirname, "itunes.js"));
+        let res = JSON.parse(stdout.toString())
+        return res as {[key: string]: any} | null;
+    } catch (e) {
+        throw e
+    }
 }
 async function getData() {
     const res = await getRawData()

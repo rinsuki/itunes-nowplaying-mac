@@ -1,3 +1,4 @@
+#!/usr/bin/osascript -l JavaScript
 var itunes = Application("iTunes")
 var track = itunes.currentTrack
 function run(argv) {
