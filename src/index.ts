@@ -5,7 +5,7 @@ const promisifyExecFile = promisify(execFile)
 
 export async function getRawData() {
     try {
-        const { stdout } = await promisifyExecFile(join(__dirname, "..", "jxa", "itunes.js"));
+        const { stdout } = await promisifyExecFile(join(__dirname, "..", "jxa", "nowplaying-info.js"));
         let res = JSON.parse(stdout.toString())
         return res as {[key: string]: any} | null;
     } catch (e) {
