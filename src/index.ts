@@ -14,7 +14,7 @@ export async function getRawData() {
 }
 
 export async function getThumbnailBuffer(databaseID: number) {
-    const { stdout } = await promisifyExecFile(join(__dirname, "..", "jxa", "get-thumbnail"), [databaseID.toString()], {
+    const { stdout } = await promisifyExecFile(join(__dirname, "..", "jxa", "get-artwork"), [databaseID.toString()], {
         maxBuffer: 64 * 1024 * 1024,
         encoding: "buffer"
     })
