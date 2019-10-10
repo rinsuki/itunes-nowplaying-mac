@@ -23,7 +23,7 @@
             updateHeaderHeight()
         })
     })
-    function updateHeaderHeight() {
+    function updateHeaderHeight() { // i want Auto Layout for web app...
         document.body.style.setProperty("--header-height", document.getElementById("wrapper").offsetTop + "px")
     }
     updateHeaderHeight()
@@ -46,7 +46,6 @@
         align-items: center;
     }
     #image {
-        width: var(--height);
         height: var(--height);
         margin-right: 1em;
     }
