@@ -12,12 +12,14 @@ export async function getRawData() {
         throw e
     }
 }
+
 async function getData() {
     const res = await getRawData()
     if (res == null) {
         return null
     }
     return {
+        id: res.id as number,
         name: res.name as string,
         duration: res.duration as number,
         artist: res.artist as string,
