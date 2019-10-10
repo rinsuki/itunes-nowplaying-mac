@@ -1,5 +1,5 @@
-src/
-!src/*.m
+src/**/*
+!src/**/*.m
 node_modules/
 jxa/
 !jxa/*.js
