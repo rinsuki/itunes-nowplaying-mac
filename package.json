@@ -5,8 +5,10 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "npm run build",
-    "build": "tsc && make"
+    "prepare": "npm run build:ts",
+    "postinstall": "npm run build:native",
+    "build:ts": "tsc",
+    "build:native": "make"
   },
   "typings": "dist/index.d.ts",
   "os": [
