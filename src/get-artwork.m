@@ -3,7 +3,7 @@
 #import "Music.h"
 
 NSString* itunesBundleId() {
-    if ([[NSFileManager defaultManager] fileExistsAtPath: @"/Application/Safari.app"]) {
+    if ([[NSFileManager defaultManager] fileExistsAtPath: @"/Applications/iTunes.app"]) {
         return @"com.apple.iTunes";
     } else {
         return @"com.apple.Music";
@@ -24,6 +24,10 @@ int main(int argc, char* argv[]) {
     NSPredicate* pred = [NSPredicate predicateWithFormat: @"databaseID = %ld", databaseId];
 
     MusicApplication* app = [SBApplication applicationWithBundleIdentifier: itunesBundleId()];
+    if (app == NULL) {
+        fprintf(stderr, "Error: Failed to find iTunes or Music.app\n");
+        return 101;
+    }
     MusicTrack* track = [[[app tracks] filteredArrayUsingPredicate: pred] firstObject];
     if (track == NULL) {
         fprintf(stderr, "Error: Track not found\n");
