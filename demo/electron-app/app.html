@@ -1,0 +1,62 @@
+<div id="header">
+    <h1>iTunes NowPlaying <button onclick="location.reload()">Reload</button></h1>
+</div>
+<div id="wrapper">
+    <img id="image">
+    <div id="info-wrapper">
+        <h2><span id="title"></span></h2>
+        <p>by <span id="artist"></span></p>
+        <p><small> (<span id="album"></span>)</small></p>
+    </div>
+</div>
+
+<script>
+    const nowplaying = require("itunes-nowplaying-mac")
+    nowplaying().then(r => {
+        if (!r) return
+        document.getElementById("title").innerText = r.name
+        document.getElementById("album").innerText = r.album.name
+        document.getElementById("artist").innerText = r.artist
+        nowplaying.getThumbnailBuffer(r.databaseID).then(r => {
+            console.log(r)
+            document.getElementById("image").src = URL.createObjectURL(new Blob([r]))
+            updateHeaderHeight()
+        })
+    })
+    function updateHeaderHeight() {
+        document.body.style.setProperty("--header-height", document.getElementById("wrapper").offsetTop + "px")
+    }
+    updateHeaderHeight()
+    addEventListener("resize", () => {
+        updateHeaderHeight()
+    })
+</script>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        margin: 0;
+    }
+    #header {
+        margin: 0.5em;
+    }
+    #wrapper {
+        display: flex;
+        --height: calc(100vh - var(--header-height));
+        height: var(--height);
+        align-items: center;
+    }
+    #image {
+        width: var(--height);
+        height: var(--height);
+        margin-right: 1em;
+    }
+    #info-wrapper {
+        flex: 1;
+    }
+    #info-wrapper > *:first-child {
+        margin-block-start: 0;
+    }
+    #info-wrapper > *:last-child {
+        margin-block-end: 0;
+    }
+</style>
