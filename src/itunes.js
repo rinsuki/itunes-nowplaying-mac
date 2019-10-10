@@ -1,7 +1,8 @@
 #!/usr/bin/osascript -l JavaScript
-var itunes = Application("iTunes")
-var track = itunes.currentTrack
 function run(argv) {
+    var itunes = $.NSFileManager.defaultManager.fileExistsAtPath("/Applications/iTunes.app") ? Application("iTunes") : Application("Music")
+    var track = itunes.currentTrack
+
     var state = itunes.playerState()
     if (state != "playing" && state != "paused") {
         return "null"
