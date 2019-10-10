@@ -9,7 +9,9 @@
     "build": "tsc"
   },
   "typings": "dist/index.d.ts",
-  "os": ["darwin"],
+  "os": [
+    "darwin"
+  ],
   "engines": {
     "node": ">= 7.6.0"
   },
