@@ -715,10 +715,10 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-itunes-nowplaying-mac@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/itunes-nowplaying-mac/-/itunes-nowplaying-mac-0.3.0.tgz#a89a625be4dd8aef9a0ef9fd31133e95817dd537"
-  integrity sha512-GdO1V4HWPEWJ6xTUStteEIMAxQL7SV34s84sg8pMdKJzTNeBmNGFE11eE868RX3Q+hupTzObM0SlW06zpl8r8Q==
+itunes-nowplaying-mac@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/itunes-nowplaying-mac/-/itunes-nowplaying-mac-0.3.1.tgz#3f5ee853aef843e66c20ae10b9439303bc1a4986"
+  integrity sha512-kZ/ef1rMzl/CMc1RBh3z99wqijxQgz5Vn1gLCrE1OqRwj9bq2vbgeIqWjJC8iDWZHRolizdTPfKMAbp8yKYFTQ==
 
 jsbn@~0.1.0:
   version "0.1.1"
