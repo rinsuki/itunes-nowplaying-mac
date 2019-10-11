@@ -1,6 +1,10 @@
 # itunes-nowplaying-mac
 
-tested in macOS High Sierra 10.13.2 and iTunes 12.7.2.58
+## Tested:
+
+- macOS Catalina 10.15 (19A583) + Music.app (1.0.0.426)
+- macOS Mojave 10.14.6 (18G103) + iTunes.app (12.9.5.5)
+
 
 ## install
 
