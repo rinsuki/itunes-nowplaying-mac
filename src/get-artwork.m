@@ -33,7 +33,8 @@ int main(int argc, char* argv[]) {
         fprintf(stderr, "Error: Track not found\n");
         return 3;
     }
-    NSData* thumbnail= [[[[[track artworks] firstObject] rawData] get] data];
+    NSData* thumbnail= [[[track artworks] firstObject] rawData];
+    if (![thumbnail isKindOfClass:[NSData class]]) thumbnail = [[((id)thumbnail) get] data];
     if ([thumbnail length] == 0) {
         fprintf(stderr, "Error: Thumbnail not found\n");
         return 4;
