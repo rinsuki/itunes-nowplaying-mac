@@ -1,6 +1,9 @@
-src/**/*
-!src/**/*.m
-node_modules/
-jxa/
+**/*
+!build-scripts/*.sh
+!dist/**/*
 !jxa/*.js
-demo/
+!src/**/*.m
+!Makefile
+!package.json
+!README.md
+!tsconfig.json
