@@ -4,10 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . itunes-nowplaying-mac-demo --platform=darwin --asar"
   },
   "dependencies": {
-    "electron": "^6.0.12",
     "itunes-nowplaying-mac": "^0.3.0"
+  },
+  "devDependencies": {
+    "electron": "^6.0.12",
+    "electron-packager": "^14.0.6"
   }
 }
