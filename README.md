@@ -2,7 +2,7 @@
 
 ## Tested:
 
-- macOS Catalina 10.15 (19A583) + Music.app (1.0.0.426)
+- macOS Catalina 10.15.6 (19G2021) + Music.app (1.0.6.10)
 - macOS Mojave 10.14.6 (18G103) + iTunes.app (12.9.5.5)
 
 
